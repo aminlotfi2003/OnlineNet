@@ -1,13 +1,13 @@
-var builder = WebApplication.CreateBuilder(args);
+using OnlineNet.WebApp.Extensions.DependencyInjection;
 
-builder.AddServiceDefaults();
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-var app = builder.Build();
+builder.Services.AddServices(builder.Configuration);
 
-app.MapDefaultEndpoints();
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

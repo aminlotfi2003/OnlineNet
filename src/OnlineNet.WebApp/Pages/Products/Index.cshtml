@@ -1,0 +1,58 @@
+﻿@page
+@model OnlineNet.WebApp.Pages.Products.IndexModel
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h1 class="mb-3">Products</h1>
+
+@if (!string.IsNullOrWhiteSpace(Model.SuccessMessage))
+{
+    <div class="alert alert-success">@Model.SuccessMessage</div>
+}
+
+<div class="mb-3">
+    <a class="btn btn-primary" asp-page="Create">+ New Product</a>
+</div>
+
+@if (Model.Products is null || Model.Products.Count == 0)
+{
+    <div class="alert alert-info">No products yet.</div>
+}
+else
+{
+    <table class="table table-striped align-middle text-center">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>SKU</th>
+                <th class="text-end">Price</th>
+                <th class="text-end">Stock</th>
+                <th>Status</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in Model.Products)
+            {
+                <tr>
+                    <td>@p.Name</td>
+                    <td><code>@p.Sku</code></td>
+                    <td class="text-end">@p.PriceAmount.ToString("N2") @p.PriceCurrency</td>
+                    <td class="text-end">@p.StockQuantity</td>
+                    <td>
+                        @if (p.IsActive)
+                        {
+                            <span class="badge bg-success">Active</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">Inactive</span>
+                        }
+                    </td>
+                    <td>@p.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

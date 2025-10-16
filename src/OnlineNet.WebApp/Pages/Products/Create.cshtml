@@ -1,0 +1,59 @@
+﻿@page
+@model OnlineNet.WebApp.Pages.Products.CreateModel
+@{
+    ViewData["Title"] = "New Product";
+}
+
+<h1 class="mb-3">New Product</h1>
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row g-3">
+
+        <div class="col-md-6">
+            <label asp-for="Command.Name" class="form-label">Name</label>
+            <input asp-for="Command.Name" class="form-control" />
+            <span asp-validation-for="Command.Name" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="Command.Sku" class="form-label">SKU</label>
+            <input asp-for="Command.Sku" class="form-control" />
+            <span asp-validation-for="Command.Sku" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-4">
+            <label asp-for="Command.PriceAmount" class="form-label">Price</label>
+            <input asp-for="Command.PriceAmount" class="form-control" />
+            <span asp-validation-for="Command.PriceAmount" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-2">
+            <label asp-for="Command.PriceCurrency" class="form-label">Currency</label>
+            <input asp-for="Command.PriceCurrency" class="form-control" maxlength="3" />
+            <span asp-validation-for="Command.PriceCurrency" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-3">
+            <label asp-for="Command.StockQuantity" class="form-label">Stock</label>
+            <input asp-for="Command.StockQuantity" class="form-control" />
+            <span asp-validation-for="Command.StockQuantity" class="text-danger"></span>
+        </div>
+
+        <div class="col-12">
+            <label asp-for="Command.Description" class="form-label">Description</label>
+            <textarea asp-for="Command.Description" class="form-control" rows="3"></textarea>
+            <span asp-validation-for="Command.Description" class="text-danger"></span>
+        </div>
+
+        <div class="col-12 d-flex gap-2 mt-2">
+            <button type="submit" class="btn btn-primary">Create</button>
+            <a asp-page="Index" class="btn btn-outline-secondary">Cancel</a>
+        </div>
+
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
