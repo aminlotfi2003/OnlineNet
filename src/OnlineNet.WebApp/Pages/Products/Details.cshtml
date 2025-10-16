@@ -1,0 +1,35 @@
+﻿@page "{id:guid}"
+@model OnlineNet.WebApp.Pages.Products.DetailsModel
+@{
+    ViewData["Title"] = "Product Details";
+}
+<h1>Product Details</h1>
+
+@if (Model.Product is null)
+{
+    <div class="alert alert-danger">Product not found.</div>
+}
+else
+{
+    var p = Model.Product;
+    <dl class="row">
+        <dt class="col-sm-2">Name</dt>
+        <dd class="col-sm-10">@p.Name</dd>
+        <dt class="col-sm-2">SKU</dt>
+        <dd class="col-sm-10"><code>@p.Sku</code></dd>
+        <dt class="col-sm-2">Price</dt>
+        <dd class="col-sm-10">@p.PriceAmount.ToString("N2") @p.PriceCurrency</dd>
+        <dt class="col-sm-2">Stock</dt>
+        <dd class="col-sm-10">@p.StockQuantity</dd>
+        <dt class="col-sm-2">Status</dt>
+        <dd class="col-sm-10">@(p.IsActive ? "Active" : "Inactive")</dd>
+        <dt class="col-sm-2">Description</dt>
+        <dd class="col-sm-10">@p.Description</dd>
+    </dl>
+
+    <div class="mt-3 d-flex gap-2">
+        <a asp-page="Edit" asp-route-id="@p.Id" class="btn btn-primary">Edit</a>
+        <a asp-page="Delete" asp-route-id="@p.Id" class="btn btn-outline-danger">Delete</a>
+        <a asp-page="Index" class="btn btn-secondary">Back</a>
+    </div>
+}

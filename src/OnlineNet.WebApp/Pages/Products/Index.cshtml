@@ -26,10 +26,10 @@ else
             <tr>
                 <th>Name</th>
                 <th>SKU</th>
-                <th class="text-end">Price</th>
-                <th class="text-end">Stock</th>
+                <th>Price</th>
+                <th>Stock</th>
                 <th>Status</th>
-                <th>Description</th>
+                <th>Operations</th>
             </tr>
         </thead>
         <tbody>
@@ -38,8 +38,8 @@ else
                 <tr>
                     <td>@p.Name</td>
                     <td><code>@p.Sku</code></td>
-                    <td class="text-end">@p.PriceAmount.ToString("N2") @p.PriceCurrency</td>
-                    <td class="text-end">@p.StockQuantity</td>
+                    <td>@p.PriceAmount.ToString("N2") @p.PriceCurrency</td>
+                    <td>@p.StockQuantity</td>
                     <td>
                         @if (p.IsActive)
                         {
@@ -47,10 +47,14 @@ else
                         }
                         else
                         {
-                            <span class="badge bg-secondary">Inactive</span>
+                            <span class="badge bg-danger">Inactive</span>
                         }
                     </td>
-                    <td>@p.Description</td>
+                    <td>
+                        <a asp-page="Details" asp-route-id="@p.Id">Details</a> |
+                        <a asp-page="Edit" asp-route-id="@p.Id">Edit</a> |
+                        <a asp-page="Delete" asp-route-id="@p.Id">Delete</a>
+                    </td>
                 </tr>
             }
         </tbody>

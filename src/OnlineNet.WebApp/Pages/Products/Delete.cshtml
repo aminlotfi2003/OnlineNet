@@ -1,0 +1,23 @@
+﻿@page "{id:guid}"
+@model OnlineNet.WebApp.Pages.Products.DeleteModel
+@{
+    ViewData["Title"] = "Delete Product";
+}
+
+<h1>Delete Product</h1>
+
+@if (Model.Product is null)
+{
+    <div class="alert alert-danger">Product not found.</div>
+}
+else
+{
+    var p = Model.Product;
+    <div class="alert alert-warning">
+        Are you sure you want to delete <strong>@p.Name</strong> (<code>@p.Sku</code>)?
+    </div>
+    <form method="post">
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-page="Details" asp-route-id="@p.Id" class="btn btn-secondary">Cancel</a>
+    </form>
+}
