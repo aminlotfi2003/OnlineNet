@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using OnlineNet.Domain.Catalog.Products;
+using OnlineNet.Domain.Products;
 
 namespace OnlineNet.Infrastructure.Persistence.Repositories;
 

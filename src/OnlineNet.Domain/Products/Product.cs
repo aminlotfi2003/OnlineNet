@@ -1,7 +1,7 @@
 ﻿using OnlineNet.Domain.Abstractions;
-using OnlineNet.Domain.Catalog.ValueObjects;
+using OnlineNet.Domain.Products.ValueObjects;
 
-namespace OnlineNet.Domain.Catalog.Products;
+namespace OnlineNet.Domain.Products;
 
 public sealed class Product : EntityBase
 {

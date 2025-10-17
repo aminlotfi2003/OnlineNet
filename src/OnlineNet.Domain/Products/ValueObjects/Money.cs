@@ -1,6 +1,6 @@
 ﻿using OnlineNet.Domain.Abstractions;
 
-namespace OnlineNet.Domain.Catalog.ValueObjects;
+namespace OnlineNet.Domain.Products.ValueObjects;
 
 public sealed class Money : ValueObject
 {
@@ -33,6 +33,14 @@ public sealed class Money : ValueObject
     {
         EnsureSameCurrency(other);
         return new Money(Amount - other.Amount, Currency);
+    }
+
+    public Money Multiply(int multiplier)
+    {
+        if (multiplier < 0)
+            throw new ArgumentOutOfRangeException(nameof(multiplier));
+
+        return new Money(Amount * multiplier, Currency);
     }
 
     private void EnsureSameCurrency(Money other)

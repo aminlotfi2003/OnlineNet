@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using OnlineNet.Domain.Catalog.Products;
+using OnlineNet.Domain.Products;
 
 namespace OnlineNet.Infrastructure.Persistence.Configurations;
 

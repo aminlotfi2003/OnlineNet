@@ -1,0 +1,54 @@
+﻿@page
+@model OnlineNet.WebApp.Pages.Orders.IndexModel
+@{
+    ViewData["Title"] = "Orders";
+}
+
+<h1 class="mb-4">Recent orders</h1>
+
+<form method="get" class="row gy-2 gx-3 align-items-center mb-4">
+    <div class="col-auto">
+        <label class="visually-hidden" asp-for="Limit">Limit</label>
+        <input asp-for="Limit" class="form-control" type="number" min="1" max="200" placeholder="Number of orders" />
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-outline-primary">Apply</button>
+    </div>
+</form>
+
+@if (Model.Orders.Count == 0)
+{
+    <div class="alert alert-info">No orders have been placed yet.</div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-striped align-middle">
+            <thead>
+                <tr>
+                    <th>Order</th>
+                    <th>Customer</th>
+                    <th>Status</th>
+                    <th class="text-end">Total</th>
+                    <th class="text-end">Lines</th>
+                    <th class="text-end">Placed</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model.Orders)
+                {
+                    <tr>
+                        <td>@order.Id.ToString()[..8]</td>
+                        <td>
+                            <a asp-page="/Customers/Details" asp-route-id="@order.CustomerId">@order.CustomerName</a>
+                        </td>
+                        <td><span class="badge bg-secondary">@order.Status</span></td>
+                        <td class="text-end">@order.TotalAmount.ToString("N2") @order.Currency</td>
+                        <td class="text-end">@order.LineCount</td>
+                        <td class="text-end">@order.CreatedOn.ToLocalTime().ToString("g")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

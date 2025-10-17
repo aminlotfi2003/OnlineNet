@@ -1,4 +1,4 @@
-﻿namespace OnlineNet.Domain.Catalog.Products;
+﻿namespace OnlineNet.Domain.Products;
 
 public interface IProductRepository
 {

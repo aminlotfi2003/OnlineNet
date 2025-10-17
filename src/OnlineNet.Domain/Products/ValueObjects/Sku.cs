@@ -1,6 +1,6 @@
 ﻿using OnlineNet.Domain.Abstractions;
 
-namespace OnlineNet.Domain.Catalog.ValueObjects;
+namespace OnlineNet.Domain.Products.ValueObjects;
 
 public sealed class Sku : ValueObject
 {

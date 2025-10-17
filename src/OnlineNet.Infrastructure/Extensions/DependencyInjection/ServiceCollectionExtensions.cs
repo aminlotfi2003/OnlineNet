@@ -2,7 +2,10 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OnlineNet.Application.Common.Abstractions;
-using OnlineNet.Domain.Catalog.Products;
+using OnlineNet.Domain.Baskets;
+using OnlineNet.Domain.Customers;
+using OnlineNet.Domain.Orders;
+using OnlineNet.Domain.Products;
 using OnlineNet.Infrastructure.Persistence;
 using OnlineNet.Infrastructure.Persistence.Repositories;
 
@@ -18,6 +21,9 @@ public static class ServiceCollectionExtensions
 
         // Register Repositories
         services.AddScoped<IProductRepository, ProductRepository>();
+        services.AddScoped<ICustomerRepository, CustomerRepository>();
+        services.AddScoped<IOrderRepository, OrderRepository>();
+        services.AddScoped<IBasketRepository, BasketRepository>();
 
         // Register Unit of Work
         services.AddScoped<IUnitOfWork, UnitOfWork>();

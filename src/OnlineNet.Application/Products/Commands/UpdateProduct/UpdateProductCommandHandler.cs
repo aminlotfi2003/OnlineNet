@@ -1,8 +1,8 @@
 ﻿using MediatR;
 using OnlineNet.Application.Common.Abstractions;
 using OnlineNet.Application.Common.Exceptions;
-using OnlineNet.Domain.Catalog.Products;
-using OnlineNet.Domain.Catalog.ValueObjects;
+using OnlineNet.Domain.Products.ValueObjects;
+using OnlineNet.Domain.Products;
 
 namespace OnlineNet.Application.Products.Commands.UpdateProduct;
 

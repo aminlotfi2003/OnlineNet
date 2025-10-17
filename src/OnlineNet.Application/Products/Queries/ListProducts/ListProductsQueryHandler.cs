@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using OnlineNet.Application.Products.Dtos;
-using OnlineNet.Domain.Catalog.Products;
+using OnlineNet.Domain.Products;
 
 namespace OnlineNet.Application.Products.Queries.ListProducts;
 

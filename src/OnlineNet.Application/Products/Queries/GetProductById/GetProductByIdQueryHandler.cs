@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using OnlineNet.Application.Common.Exceptions;
 using OnlineNet.Application.Products.Dtos;
-using OnlineNet.Domain.Catalog.Products;
+using OnlineNet.Domain.Products;
 
 namespace OnlineNet.Application.Products.Queries.GetProductById;
 

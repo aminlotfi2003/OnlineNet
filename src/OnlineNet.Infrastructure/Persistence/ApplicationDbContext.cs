@@ -1,7 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using OnlineNet.Domain.Abstractions;
-using OnlineNet.Domain.Catalog.Products;
+using OnlineNet.Domain.Baskets;
+using OnlineNet.Domain.Customers;
+using OnlineNet.Domain.Orders;
+using OnlineNet.Domain.Products;
 using System.Reflection;
 
 namespace OnlineNet.Infrastructure.Persistence;
@@ -11,6 +14,9 @@ public class ApplicationDbContext : DbContext
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
     public DbSet<Product> Products => Set<Product>();
+    public DbSet<Customer> Customers => Set<Customer>();
+    public DbSet<Order> Orders => Set<Order>();
+    public DbSet<Basket> Baskets => Set<Basket>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

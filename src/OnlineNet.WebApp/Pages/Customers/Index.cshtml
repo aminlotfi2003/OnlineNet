@@ -1,0 +1,40 @@
+﻿@page
+@model OnlineNet.WebApp.Pages.Customers.IndexModel
+@{
+    ViewData["Title"] = "Customers";
+}
+
+<h1 class="mb-4">Customers</h1>
+
+<p class="mb-4">Browse registered customers and drill into their order activity.</p>
+
+@if (Model.Customers.Count == 0)
+{
+    <div class="alert alert-info">No customers have been created yet.</div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-striped align-middle">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var customer in Model.Customers)
+                {
+                    <tr>
+                        <td>@customer.FullName</td>
+                        <td>@customer.Email</td>
+                        <td class="text-end">
+                            <a class="btn btn-sm btn-outline-primary" asp-page="/Customers/Details" asp-route-id="@customer.Id">View details</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
